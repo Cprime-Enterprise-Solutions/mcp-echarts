@@ -50,8 +50,8 @@ export const WidthSchema = z
 
 // TODO: use zod v4 JSON to schema to replace zod-to-json-schema when v4 is stable
 // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-export const zodToJsonSchema = (schema: z.ZodType<any>) => {
-  return zodToJsonSchemaOriginal(schema, {
+export const zodToJsonSchema = (schema: z.ZodType<any, any, any>) => {
+  return zodToJsonSchemaOriginal(schema as any, {
     rejectedAdditionalProperties: undefined,
   });
 };
